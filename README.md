@@ -3,4 +3,4 @@ Time management in Qt
 
 Under development
 
-Using github.com/Chekr/shared libraies for timekeeping
+Using github.com/Chekr/shared libraries for timekeeping
