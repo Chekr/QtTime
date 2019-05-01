@@ -7,7 +7,14 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 SOURCES += \
     main.cpp \
-    window.cpp
+    window.cpp \
+	alarmWidget.cpp \
+	timerWidget.cpp \
+	stopWatchWidget.cpp
 
 HEADERS += \
-    window.h
+    window.h \ 
+	alarmWidget.h \
+	timerWidget.h \
+	stopWatchWidget.h \
+    alarmEvent.h

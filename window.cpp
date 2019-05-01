@@ -1,19 +1,26 @@
 #include "window.h"
 
+#include <QTabWidget>
+
+#include "alarmWidget.h"
+#include "stopWatchWidget.h"
+#include "timerWidget.h"
+
 Window::Window(QWidget *parent) : QWidget(parent)
 {
-    setFixedSize(200, 80);
+    setWindowTitle(QString::fromUtf8("Time App"));
+    setFixedSize(268, 500);
 
-    progressBar = new QProgressBar(&*this);
-    progressBar->setRange(0, 100);
-    progressBar->setValue(0);
-    progressBar->setGeometry(10, 10, 180, 30);
+    m_alarmWidget = new AlarmWidget();
+    m_stopwatchWidget = new StopWatchWidget();
+    m_timerWidget = new TimerWidget();
 
-    slider = new QSlider(&*this);
-    slider->setOrientation(Qt::Horizontal);
-    slider->setRange(0, 100);
-    slider->setValue(0);
-    slider->setGeometry(10, 40, 180, 30);
+    m_tabs = new QTabWidget(this);
+    m_tabs->setGeometry(10, 10, 248, 480);
+    m_tabs->addTab(m_timerWidget,"Timer");
+    //m_tabs->addTab(m_alarmWidget,"Alarm");
+    //m_tabs->addTab(m_stopwatchWidget,"Stopwatch");
 
-    QObject::connect(slider, SIGNAL (valueChanged(int)), progressBar, SLOT (setValue(int)));
+
+
 }
