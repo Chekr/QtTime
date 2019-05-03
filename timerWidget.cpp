@@ -175,6 +175,11 @@ void TimerWidget::GetTimerData()
         float secondsLeft = static_cast<float>(m_secondsForTimer) - (elapsedTime);
         SetUiInSeconds(static_cast<int>(secondsLeft));
 
+        if(secondsLeft < 0.0f && !m_machine->configuration().contains(m_stateAlarm))
+        {
+            // trigger alarm state
+        }
+
         int barFill = secondsLeft > 0.0f ? (secondsLeft*100.0f)/static_cast<float>(m_secondsForTimer) : 0.0f;
         m_pgbTimeLeft->setValue(barFill);
 
